@@ -16,6 +16,9 @@ mongoose.connect(process.env.MONGODB_URL, (err) => {
   }
   console.log("connect successfully!");
 })
+app.get("/", (req, res) => {
+  return res.status(200).json("test successfully!!");
+})
 app.use('/v1/auth', authRoutes);
 app.use('/user', userRoutes);
 
