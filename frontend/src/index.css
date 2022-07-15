@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .odd{
+  }
+  .odd:not(:placeholder-shown) + label{
+    top: -1rem;
+    color:cyan;
+    font-size:1rem;
+  }
+}

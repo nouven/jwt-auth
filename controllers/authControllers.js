@@ -1,6 +1,13 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const authControllers = {
+  generateToken: (user, key, expiresIn) => {
+    return jwt.sign({
+      id: user.id,
+      isAdmin: user.isAdmin,
+    }, key, { expiresIn: expiresIn })
+  },
   registerUser: async (req, res) => {
     try {
       const salt = await bcrypt.genSalt(10);
@@ -28,8 +35,11 @@ const authControllers = {
       if (!isvalid) {
         return res.status(404).json("wrong password");
       }
-      const { password, ...others } = user._doc;
-      return res.status(200).json(others)
+      const accessToken = authControllers.generateToken(user, process.env.ACCESS_KEY, '20m');
+      res.cookie("token", accessToken, {
+        httpOnly: true,
+      });
+      return res.status(200).json({ accessToken });
     } catch (err) {
       return res.status(500).json(err);
     }
