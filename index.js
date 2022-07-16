@@ -6,9 +6,9 @@ const app = express();
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 
+app.use(cors())
 require('dotenv').config();
 app.use(express.json());
-app.use(cors())
 app.use(cookieParser())
 
 mongoose.connect(process.env.MONGODB_URL, (err) => {
