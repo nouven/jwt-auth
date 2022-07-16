@@ -9,7 +9,7 @@ const userRoutes = require('./routes/user');
 require('dotenv').config();
 app.use(express.json());
 app.use(cors({
-  origin: "*",
+  origin: "https://authasdfasdfasdf.netlify.app",
 }))
 app.use(cookieParser())
 
