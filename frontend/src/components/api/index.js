@@ -1,5 +1,5 @@
 import axios from 'axios'
-const URL = 'http://localhost:5000/';
+const URL = 'https://nouven-auth.herokuapp.com/';
 const request = {
   login: async (username, password) => {
     return axios.post(`${URL}v1/auth/login`, { username, password })
