@@ -8,7 +8,7 @@ const userController = {
         const { password, ...others } = user._doc;
         return others
       })
-      return res.status(200).json( users);
+      return res.status(200).json(users);
     } catch (err) {
       return res.status(500).json(err);
     }

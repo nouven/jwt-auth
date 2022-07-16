@@ -1,4 +1,4 @@
-function Input({ inputName }) {
+function Input({ inputName, valueInput, setValueInput, typeInput }) {
   const style = {
     input: `
       w-full p-4 text-gray-300 
@@ -21,8 +21,7 @@ function Input({ inputName }) {
   }
   return (
     <div className="w-full bg-transparent relative shadow-cyan-700 shadow-lg ">
-      <input className={style.input} placeholder=" "
-      />
+      <input type={typeInput} className={style.input} placeholder=" " value={valueInput} onChange={e => setValueInput(e.target.value)} />
       <label className={style.label}>
         {inputName}</label>
     </div>

@@ -35,7 +35,7 @@ const authControllers = {
       if (!isvalid) {
         return res.status(404).json("wrong password");
       }
-      const accessToken = authControllers.generateToken(user, process.env.ACCESS_KEY, '20m');
+      const accessToken = authControllers.generateToken(user, process.env.ACCESS_KEY, '30m');
       res.cookie("token", accessToken, {
         httpOnly: true,
       });

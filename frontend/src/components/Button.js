@@ -1,4 +1,4 @@
-function Button({ buttonName, rotate }) {
+function Button({ buttonName, rotate, handleClick }) {
   const style = {
     container: `
       bg-black bg-opacity-40 outline-none w-fit rounded-xl shadow-cyan-600 shadow-lg 
@@ -18,7 +18,7 @@ function Button({ buttonName, rotate }) {
   }
   return (
     <div className={`${style.container} ${rotate}`}>
-      <button className={style.button}>{buttonName}</button>
+      <button className={style.button} onClick={handleClick}>{buttonName}</button>
     </div >
   )
 }
