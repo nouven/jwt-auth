@@ -8,6 +8,9 @@ const userRoutes = require('./routes/user');
 
 require('dotenv').config();
 app.use(express.json());
+app.use(cors({
+  origin: "*",
+}))
 app.use(cookieParser())
 
 mongoose.connect(process.env.MONGODB_URL, (err) => {
